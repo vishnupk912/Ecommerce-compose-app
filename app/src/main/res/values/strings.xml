@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EcommerceCompose</string>
+    <string name="title_activity_product_details_compose">ProductDetailsComposeActivity</string>
+</resources>
