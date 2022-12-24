@@ -1,11 +1,14 @@
 package com.test.ecommercecompose.screens
 
-import android.content.Intent
+import android.R.attr.bitmap
+import android.content.res.Resources
+import android.graphics.BitmapFactory
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,22 +22,25 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.test.ecommercecompose.composables.ImageCompose
+import androidx.core.content.ContextCompat
+import androidx.palette.graphics.Palette
+import androidx.palette.graphics.Palette.PaletteAsyncListener
 import com.test.ecommercecompose.R
 import com.test.ecommercecompose.composables.HeaderCompose
-import com.test.ecommercecompose.composables.category
 import com.test.ecommercecompose.composables.product
 import com.test.ecommercecompose.model.CategoryData
-import com.test.ecommercecompose.ui.theme.LightGrey
-import com.test.ecommercecompose.ui.theme.Shapes
+import com.test.ecommercecompose.ui.theme.LightBlue
+import com.test.ecommercecompose.utils.openActivity
+
 
 @OptIn(ExperimentalFoundationApi::class)
 @Preview
 @Composable
 fun HomeScreenCompose() {
 
-    var visible by remember { mutableStateOf(false) }
+    var isHeaderVisible by remember { mutableStateOf(false) }
 
+    val context = LocalContext.current
 
     Column(
         verticalArrangement = Arrangement.Top,
@@ -51,8 +57,9 @@ fun HomeScreenCompose() {
             verticalAlignment = Alignment.CenterVertically,
         ) {
 
+
             Text(
-                modifier = Modifier.padding(start=24.dp,top=12.dp, bottom = 12.dp),
+                modifier = Modifier.padding(start = 24.dp, top = 12.dp, bottom = 12.dp),
                 text = "Our Product",
                 textAlign = TextAlign.Start,
                 style = TextStyle(
@@ -74,25 +81,67 @@ fun HomeScreenCompose() {
         }
 
         val categoryList = listOf(
-            CategoryData("court vision low battery sneakers black", R.drawable.shoe,"Nike","Rs 9700"),
-            CategoryData("Legacy & classic sneakers brown mens wear", R.drawable.nike1,"Nike","Rs 10909"),
-            CategoryData("Green sparkle sports men's wear", R.drawable.nike5,"Nike","Rs 92839"),
-            CategoryData("Lady queen for girls (Pink & white)", R.drawable.nike2,"Nike","Rs 9823"),
-            CategoryData("Tanjun Red colour nike for men|women(unisex) - Red", R.drawable.nike3,"Nike","Rs 18977"),
-            CategoryData("Tanjun made nike for men|women(unisex) - Blue", R.drawable.nike6,"Nike","Rs 7878"),
-            CategoryData("Bounce premium sports shoe (unisex) - Red", R.drawable.nike7,"Nike","Rs 5000"),
-            CategoryData("J&J party wear for men (High heels) - Red", R.drawable.nike8,"Nike","Rs 28499"),
+            CategoryData(
+                "court vision low battery sneakers black",
+                R.drawable.shoe,
+                "Nike",
+                "Rs 9700"
+            ),
+            CategoryData(
+                "Legacy & classic sneakers brown mens wear",
+                R.drawable.nike1,
+                "Nike",
+                "Rs 10909"
+            ),
+            CategoryData("Green sparkle sports men's wear", R.drawable.nike5, "Nike", "Rs 92839"),
+            CategoryData(
+                "Lady queen for girls (Pink & white)",
+                R.drawable.nike2,
+                "Nike",
+                "Rs 9823"
+            ),
+            CategoryData(
+                "Running Red colour nike for men|women(unisex) - Red",
+                R.drawable.nike3,
+                "Nike",
+                "Rs 18977"
+            ),
+            CategoryData(
+                "Tanjun made nike for men|women(unisex) - Blue",
+                R.drawable.nike6,
+                "Nike",
+                "Rs 7878"
+            ),
+            CategoryData(
+                "Premium run sports shoe (unisex) - Red",
+                R.drawable.nike7,
+                "Nike",
+                "Rs 5000"
+            ),
+            CategoryData(
+                "J&J party wear for men (High heels) - Red",
+                R.drawable.nike8,
+                "Nike",
+                "Rs 28499"
+            ),
 
             )
 
 
         LazyVerticalGrid(cells = GridCells.Fixed(2), modifier = Modifier.padding(10.dp))
         {
+            var dominantColor:Int=0
             items(categoryList) { item ->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    product(name = item.name,item.image,item.price){
+                    product(name = item.name, item.image, item.price) {
 
 
+                        context.openActivity(ProductDetailsComposeActivity::class.java) {
+                            putString("name", item.name)
+                            putInt("image", item.image)
+                            putString("price", item.price)
+
+                        }
                     }
 
                 }
