@@ -2,4 +2,5 @@
     <string name="app_name">EcommerceCompose</string>
     <string name="title_activity_product_details_compose">ProductDetailsComposeActivity</string>
     <string name="title_activity_profile_compose">ProfileComposeActivity</string>
+    <string name="title_activity_payment_screen_compose">PaymentScreenComposeActivity</string>
 </resources>

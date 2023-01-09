@@ -85,44 +85,44 @@ fun HomeScreenCompose() {
                 "court vision low battery sneakers black",
                 R.drawable.shoe,
                 "Nike",
-                "Rs 9700"
+                "₹ 9,700"
             ),
             CategoryData(
                 "Legacy & classic sneakers brown mens wear",
                 R.drawable.nike1,
                 "Nike",
-                "Rs 10909"
+                "₹ 10,909"
             ),
-            CategoryData("Green sparkle sports men's wear", R.drawable.nike5, "Nike", "Rs 92839"),
+            CategoryData("Green sparkle sports men's wear", R.drawable.nike5, "Nike", "₹ 9,839"),
             CategoryData(
                 "Lady queen for girls (Pink & white)",
                 R.drawable.nike2,
                 "Nike",
-                "Rs 9823"
+                "₹ 9,823"
             ),
             CategoryData(
                 "Running Red colour nike for men|women(unisex) - Red",
                 R.drawable.nike3,
                 "Nike",
-                "Rs 18977"
+                "₹ 18,977"
             ),
             CategoryData(
                 "Tanjun made nike for men|women(unisex) - Blue",
                 R.drawable.nike6,
                 "Nike",
-                "Rs 7878"
+                "₹ 7,878"
             ),
             CategoryData(
                 "Premium run sports shoe (unisex) - Red",
                 R.drawable.nike7,
                 "Nike",
-                "Rs 5000"
+                "₹ 5,000"
             ),
             CategoryData(
                 "J&J party wear for men (High heels) - Red",
                 R.drawable.nike8,
                 "Nike",
-                "Rs 28499"
+                "₹ 28,499"
             ),
 
             )

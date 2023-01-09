@@ -60,7 +60,7 @@ fun HeaderCompose() {
 
 
         Text(
-            text = "Foot Bay",
+            text = "",
             modifier = Modifier.weight(1f),
             textAlign = TextAlign.Center,
             style = TextStyle(
